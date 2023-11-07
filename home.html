@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalkulator Sederhana</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 10rem;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content {
+        background: url('https://images.pexels.com/photos/876467/pexels-photo-876467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: black;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .navbar-nav a {
+        color: black;
+    }
+
+    .swipe-up-link {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        animation: swipeUp 1.5s infinite;
+        margin-top: 20px;
+        background-color: #815831;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        box-shadow: 0px 10px 10px gray;
+    }
+
+    .swipe-up-link:hover {
+        color: black;
+        background-color: #E9E0D2;
+    }
+
+    @keyframes swipeUp {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .custom-shadow {
+        box-shadow: 0 4px 8px 0 #E9E0D2;
+    }
+
+    .form-control:focus {
+        border-color: #8B4513;
+        box-shadow: none;
+    }
+</style>
+
+<body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <nav class="navbar navbar-expand-lg navbar-light position-fixed w-100"
+        style="background-color: #E9E0D2; z-index: 99;" { color: black; };>
+        <div class="container">
+            <a class="navbar-brand" href="#home"><b>Fina.</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Materi">Materi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Kalkulator">Kalkulator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content" id="home">
+        <h1>Selamat Datang</h1>
+        <p>Ini adalah website kalkulator sederhana</p>
+        <a href="#Materi" class="swipe-up-link">Click Here</a>
+    </div>
+
+    <div class="mx-2 my-5 row" id="Materi">
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="card">
+                <div class="card-body custom-shadow" style="min-height: 23rem;">
+                    <i class="bi bi-book-half"
+                        style="display: flex; justify-content: center; font-size: 5rem; color: #815831;"></i>
+                    <!-- Judul -->
+                    <h5 class="card-title text-center">Basic Alert</h5>
+                    <!-- Deskripsi -->
+                    <p class="card-text text-center">ini adalah cara menampilakan Alert biasa.</p>
+                    <!-- Tautan -->
+                    <div class="card-body">
+                        <button type="button" class="btn btn-success mt-3 w-100"
+                            onclick="alert('Thank you for your click')"
+                            style="background-color:#E9E0D2; color: #000; border: none;">Click
+                            On Me</button>
+                        <button type="button" class="btn btn-info mt-3 w-100"
+                            onmouseover="alert('Thank you for your hover')"
+                            style="background-color:#815831; color: white;">
+                            Hover On Me </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="card" style="min-height: 23rem;">
+                <div class="card-body custom-shadow">
+                    <!-- Judul -->
+                    <h5 class="card-title text-center">Dynamic Alert</h5>
+                    <!-- Deskripsi -->
+                    <p class="card-text text-center">Ini adalah cara untuk menampilkan Alert sesuai inputan yang di
+                        isikan.</p>
+                    <!-- Tautan -->
+                    <input type="text" id="message" class="form-control">
+                    <div style="display: flex; justify-content: center;">
+                        <button type="button" class="btn btn-success mt-3 w-100"
+                            onclick="alert(document.getElementById('message').value)"
+                            style="background-color:#E9E0D2; color: #000; border: none;">Show</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="card">
+                <div class="card-body custom-shadow" style="min-height: 23rem;">
+                    <!-- Judul -->
+                    <h5 class="card-title text-center">Kalkulator Persegi Panjang</h5>
+                    <div class="card-body">
+                        Panjang
+                        <input type="number" id="panjang" class="form-control" />
+                        Lebar
+                        <input type="number" id="lebar" class="form-control" />
+                        Hasil
+                        <input type="text" id="hasil" class="form-control" readonly />
+                    </div>
+                    <button class="btn btn-success mt-3 w-100" onclick="persegi()"
+                        style="background-color:#815831; color: white;">Luas</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mt-5" data-aos="zoom-in">
+            <div class="card" style="min-height: 31rem;">
+                <h5 class="card-title text-center"> Setting</h5>
+                <p class="card-text text-center">ini adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Veniam odio quisquam quaerat!.</p>
+                <div class="card-body custom-shadow">
+                    <div class="card-body">
+                        Width (percentage)
+                        <input type="number" id="height" class="form-control">
+                        Height (percentage)
+                        <input type="number" id="width" class="form-control">
+                        Background
+                        <input type="color" id="warna" class="form-control" style="height: 100px;">
+                        <button type="button" onclick="editStyle();" class="btn btn-success mt-3 w-100"
+                            style="background-color:#815831; color: white; border: none;">
+                            Set
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-5" data-aos="zoom-in">
+            <div class="card" style="min-height: 31rem;">
+                <div class="card-body custom-shadow">
+                    <!-- Judul -->
+                    <h5 class="card-title text-center">Result</h5>
+                    <!-- Deskripsi -->
+                    <p class="card-text text-center">Ini adalah hasil dari setting sesuai dengan inputan yang di
+                        isikan.</p>
+                    <div id="square"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center" data-aos="zoom-in" style="margin: 5rem 0;" id="Kalkulator">
+        <div class="card" style="width: 24rem;">
+            <ul class="list-group list-group-flush custom-shadow">
+                <li class="list-group-item text-center" style="background: #815831; color:white"><b>Kalkulator Luas
+                        Sederhana</b></li>
+                <li class="list-group-item text-center" style="background:white; "> <a href="persegi.html"
+                        class="text-decoration-none" style="color:black">Persegi</a></li>
+                <li class="list-group-item text-center" style="background:#E9E0D2; "><a href="persegi_panjang.html"
+                        class="text-decoration-none" style="color:black">Persegi Panjang</a></li>
+                <li class="list-group-item text-center" style="background:white; "><a href="jajar_genjang.html"
+                        class="text-decoration-none" style="color:black">Jajar jenjang</a></li>
+                <li class="list-group-item text-center" style="background:#E9E0D2;; "><a href="segitiga.html"
+                        class="text-decoration-none" style="color:black">Segitiga</a></li>
+                <li class="list-group-item text-center" style="background:white; "><a href="lingkaran.html "
+                        class="text-decoration-none" style="color:black">Lingkaran</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="w-100 py-3 text-center" style="background:#E9E0D2; color: black;">
+        <p>&copy; 2023 Asfina. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        const persegi = () => {
+            let panjang = parseFloat(document.getElementById("panjang").value);
+            let lebar = parseFloat(document.getElementById("lebar").value);
+
+            let hasil = panjang * lebar;
+            document.getElementById("hasil").value = hasil;
+            alert(`Hasil Luasnya = ${hasil}`);
+        }
+        function editStyle() {
+            //mengambil nilai dari element
+            let panjang = parseFloat(document.getElementById("height").value);
+            let lebar = parseFloat(document.getElementById("width").value);
+            let warna = document.getElementById('warna').value;
+
+            //edit style
+            document.getElementById('square').style.width = panjang + "px";
+            document.getElementById('square').style.height = lebar + "px";
+            document.getElementById('square').style.backgroundColor = warna;
+        }
+
+    </script>
+
+
+</body>
+
+</html>
